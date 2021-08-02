@@ -39,6 +39,8 @@ namespace LessSharp.WebApi
 {
     public class Startup
     {
+        readonly string myAllowSpecificOrigins = "MyAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -49,6 +51,13 @@ namespace LessSharp.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(myAllowSpecificOrigins,
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
             #region 选项实体配置
             var JwtConfiguration = Configuration.GetSection("Jwt");
             services.Configure<JwtOption>(JwtConfiguration);
@@ -221,11 +230,13 @@ namespace LessSharp.WebApi
             });
             #endregion
             services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(myAllowSpecificOrigins);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

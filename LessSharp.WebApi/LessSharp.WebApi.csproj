@@ -15,11 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.1.0" />
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.6.2" />
   </ItemGroup>
 

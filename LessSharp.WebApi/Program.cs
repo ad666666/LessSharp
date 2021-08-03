@@ -67,11 +67,9 @@ namespace LessSharp.WebApi
                         types.Add(assemblyName);
                         types.AddRange(GetDependAssemblyNames(type.Assembly));
                     }
-
                 }
             }
             return types;
-
         }
     }
 }
